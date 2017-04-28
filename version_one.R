@@ -19,16 +19,19 @@ head(table)
 
 ggplot(data = table) + 
   geom_point(data = subset(table, (V6 == "+") & (V12 == "+")), aes(x=motif.middle, y= 0.2, fill = V10), shape = 25, size = 3) + 
-  geom_point(data = subset(table, (V6 == "+") & (V12 == "-")), aes(x=motif.middle, y= -0.2, fill = V10), shape = 24, size = 3) + 
-  geom_point(data = subset(table, (V6 == "-") & (V12 == "+")), aes(x=motif.middle, y= -0.2, fill = V10), shape = 24, size = 3) +
+  geom_point(data = subset(table, (V6 == "+") & (V12 == "-")), aes(x=motif.middle, y= -0.2, fill = V10), shape = 24, size = 3, show.legend = FALSE) + 
+  geom_point(data = subset(table, (V6 == "-") & (V12 == "+")), aes(x=motif.middle, y= -0.2, fill = V10), shape = 24, size = 3, show.legend = FALSE) +
   geom_point(data = subset(table, (V6 == "-") & (V12 == "-")), aes(x=motif.middle, y= 0.2, fill = V10), shape = 25, size = 3) +
+  geom_point(aes(x= 450,y =0.01), fill= "grey20", shape = 108, size = 3) +
   xlim(1,500) + 
   ylim(-0.5,0.5) +
   theme_bw() +
-  coord_fixed(ratio = 150) +
-  facet_wrap("Genes", ncol=3) +
+  coord_fixed(ratio = 100) +
+  facet_wrap("Genes", ncol= 3) +
   geom_segment(aes(x=1,xend=500,y=0,yend=0)) +
-  theme(axis.title.y=element_blank(), axis.title.x = element_blank(), axis.text.y=element_blank(),axis.ticks.y=element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+  scale_fill_manual(values=c("red2","lightgreen","dodgerblue","grey20")) +
+  theme(axis.title.y=element_blank(), axis.title.x = element_blank(), axis.text.y=element_blank(),axis.ticks.y=element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
+  ggsave("Test.jpeg", width = 10, height = 10)
 
 
 dev.off()
