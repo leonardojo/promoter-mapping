@@ -1,0 +1,21 @@
+---
+title: "Example"
+author: "Leonardo Jo"
+date: "April 27, 2017"
+output: html_document
+---
+```{r}
+library(tidyverse)
+options(stringsAsFactors = F)
+
+table <- read.table('test1.bed.txt', header = F, sep = "\t")
+head(table)
+
+ggplot(data = subset(table, V4 == "Glyma.01G001100")) + 
+  geom_point(data = subset(table, V12 == 0.1), aes(x=V8, y=V12, fill = V10), shape = 25, size = 2) + 
+  geom_point(data = subset(table, V12 == -0.1), aes(x=V9, y=V12, fill = V10), shape = 24, size = 2) + 
+  xlim(as.numeric(table[2,3])-500, as.numeric(table[2,3])) + 
+  ylim(-2,2) +
+  theme_bw()
+             
+```
