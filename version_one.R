@@ -27,7 +27,12 @@ table$motif.stop[table$V6 == "-"] <- (table[table$V6 == "-", 3]-table[table$V6 =
 table$motif.middle <- table$motif.start + as.numeric((table$motif.stop-table$motif.start)/2)
 
 head(table)
-point <- data.frame(c(1,100,200,300,400,500))
+
+## Preparing for ploting
+
+##Setting up scale points
+promoter.size <- as.numeric(table[1,3] - table[1,2]) ## They all need to be the same
+point <- data.frame(seq.int(0.000001,promoter.size, length= as.numeric(promoter.size)/100 + 1))
 names(point) <- "X"
  
 ggplot(data = table) + 
@@ -44,7 +49,7 @@ ggplot(data = table) +
   
   geom_point(data = point, aes(x= X, y =0.0), fill= "grey20", shape = 108, size = 3) +
 
-  xlim(1,500) + 
+  xlim(0,500) + 
   ylim(-0.5,0.5) +
   theme_bw() +
   coord_fixed(ratio = 100) +
