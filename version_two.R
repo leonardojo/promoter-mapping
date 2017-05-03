@@ -31,7 +31,7 @@ table$motif.middle <- table$motif.start + as.numeric((table$motif.stop-table$mot
 head(table)
 
 ## Subset table from a gene list
-gene.list <- read.table("EM LEARBZ DT.txt", header = F)
+gene.list <- read.table("EM LEARBZAB DT.txt", header = F)
 table.s <- merge(table, gene.list, by.x = "Genes", by.y = "V1")
 
 ## Preparing for ploting
@@ -69,11 +69,11 @@ ggplot(data = table.s) +
   theme(legend.position = "top", legend.title = element_blank(),
         axis.title.y=element_blank(), axis.title.x = element_blank(), axis.text.y=element_blank(), 
         axis.ticks.y=element_blank(),axis.text.x=element_blank(),axis.ticks.x=element_blank(), 
-        panel.grid.major = element_blank(), panel.grid.minor = element_blank()) 
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
   
-  ggsave(file = "LAB.png", dpi = 600, width = 5, height = as.numeric(h), units = "in", limitsize = F)
+  ggsave(file = "LABA.jpeg", dpi = 600, width = 5, height = as.numeric(h), units = "in", limitsize = F)
 
 
 dev.off()
-as.numeric(h)
+
 
