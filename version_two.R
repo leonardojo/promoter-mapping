@@ -44,14 +44,18 @@ names(point) <- "X"
 ##Setting up image size
 h <- n_distinct(table.s$Genes)/4
 
-
 ggplot(data = table.s) + 
   
+  ## Motifs in the positive strand of genes in positive strand
   geom_point(data = subset(table.s, (V6 == "+") & (V12 == "+") & (V10 != "TSS")), aes(x=motif.middle, y= 0.25, fill = V10), shape = 25, size = 2) + 
+  ## Motifs in the negative strand of genes in positive strand
   geom_point(data = subset(table.s, (V6 == "+") & (V12 == "-") & (V10 != "TSS")), aes(x=motif.middle, y= -0.25, fill = V10), shape = 24, size = 2, show.legend = FALSE) + 
+  ## Motifs in the positive strand of genes in negative strand
   geom_point(data = subset(table.s, (V6 == "-") & (V12 == "+") & (V10 != "TSS")), aes(x=motif.middle, y= -0.25, fill = V10), shape = 24, size = 2, show.legend = FALSE) +
+  ## Motifs in the negative strand of genes in negative strand
   geom_point(data = subset(table.s, (V6 == "-") & (V12 == "-") & (V10 != "TSS")), aes(x=motif.middle, y= 0.25, fill = V10), shape = 25, size = 2) +
   
+  ##TSS
   geom_point(data = subset(table.s, V10 == "TSS"), aes(x=motif.middle, y= 0, colour= "TSS"), fill = "grey20", shape = 18, size = 2) + 
   
   geom_point(data = point, aes(x= X, y =0.0), fill= "grey20", shape = 108, size = 2) +
