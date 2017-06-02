@@ -46,6 +46,7 @@ h <- n_distinct(table.s$Genes)/4
 
 ggplot(data = table.s) + 
   
+<<<<<<< HEAD
   ## Motifs in the positive strand of genes in positive strand
   geom_point(data = subset(table.s, (V6 == "+") & (V12 == "+") & (V10 != "TSS")), aes(x=motif.middle, y= 0.25, fill = V10), shape = 25, size = 2) + 
   ## Motifs in the negative strand of genes in positive strand
@@ -53,6 +54,15 @@ ggplot(data = table.s) +
   ## Motifs in the positive strand of genes in negative strand
   geom_point(data = subset(table.s, (V6 == "-") & (V12 == "+") & (V10 != "TSS")), aes(x=motif.middle, y= -0.25, fill = V10), shape = 24, size = 2, show.legend = FALSE) +
   ## Motifs in the negative strand of genes in negative strand
+=======
+  ## Motifs in the positive strand of genes in positive strand genes
+  geom_point(data = subset(table.s, (V6 == "+") & (V12 == "+") & (V10 != "TSS")), aes(x=motif.middle, y= 0.25, fill = V10), shape = 25, size = 2) + 
+  ## Motifs in the negative strand of genes in positive strand genes
+  geom_point(data = subset(table.s, (V6 == "+") & (V12 == "-") & (V10 != "TSS")), aes(x=motif.middle, y= -0.25, fill = V10), shape = 24, size = 2, show.legend = FALSE) + 
+  ## Motifs in the positive strand of genes in negative strand genes
+  geom_point(data = subset(table.s, (V6 == "-") & (V12 == "+") & (V10 != "TSS")), aes(x=motif.middle, y= -0.25, fill = V10), shape = 24, size = 2, show.legend = FALSE) +
+  ## Motifs in the negative strand of genes in negative strand genes
+>>>>>>> dbc531872ba7374cc12d3896e7dc2f665f74a638
   geom_point(data = subset(table.s, (V6 == "-") & (V12 == "-") & (V10 != "TSS")), aes(x=motif.middle, y= 0.25, fill = V10), shape = 25, size = 2) +
   
   ##TSS
