@@ -1,4 +1,4 @@
-# Promoter Mapping v1.0
+# Promoter Mapping v1.1
 
 library(tidyverse)
 options(stringsAsFactors = F)
