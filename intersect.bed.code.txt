@@ -1,0 +1,6 @@
+## Code for generate the Motifs.Promoter.Bed File
+"### ABRE, RY, Gbox, CCAAT and TSS "
+/home/user/ljo/promoter_mapping
+perl -pi -e 's/\r\n/\n/g' *.bed
+
+bedtools intersect -a Promoter_500_100_Gmax_275_Wm82.a2.v1.TSS.bed -b Gmax_275_ABRElike.bed Gmax_275_CCAAT.bed Gmax_275_Gbox.bed Gmax_275_RY.bed Gmax_275_TSS.bed -wa -wb > Motifs.Promoter.bed
