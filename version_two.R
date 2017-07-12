@@ -52,7 +52,7 @@ head(table)
 
 ## Subset table from a gene list
 ## Gene List is a tab delimited text file with a list of genes that you want to subset
-gene.groups <- list.files(pattern = "DT.txt")
+gene.groups <- list.files(pattern = "LABA_DT_LIPID_STORAGE.txt")
 
 for (i in gene.groups){
 gene.list <- read.table(paste(i), header = F)
@@ -109,7 +109,7 @@ a <- ggplot(data = table.subset) +
         panel.grid.major = element_blank(), panel.grid.minor = element_blank()) 
 
 a + 
-  ggsave(file = name, dpi = 600, width = 10, height = as.numeric(h), units = "in", limitsize = F)
+  ggsave(file = name, dpi = 600, width = 10, height = as.numeric(h)*1.5, units = "in", limitsize = F)
 
 }
 
